@@ -1,37 +1,57 @@
+/* src/app/results/results.component.less */
+
 .results-container {
-  padding: 2rem;
-  max-width: 600px;
-  margin: 2rem auto;
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
 }
 
-.result-item {
-  margin-bottom: 1.5rem;
+.results-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  max-height: 40vh; // Make list scrollable if it's too long
+  overflow-y: auto;
+  border-radius: 8px;
+  padding-right: 10px; // Space for scrollbar
+
+  // Custom scrollbar for a better look
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--primary-purple);
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-pink);
+  }
+
+  li {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--primary-purple);
+  }
 }
 
-.result-item h3 {
-  margin: 0;
-  color: #32008f;
+.result-question {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
-.result-item p {
-  margin: 0.25rem 0;
+.result-answer {
+  color: var(--text-color);
+  opacity: 0.9;
 }
 
-.results-container button {
+// Center the restart button
+.btn {
   display: block;
-  margin: 1rem auto 0;
-  padding: 0.75rem 1.5rem;
-  background-color: #6a00f4;
-  color: white;
-  border: none;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.results-container button:hover {
-  background-color: #5a00d4;
+  width: fit-content;
+  margin: 1rem auto 0; // auto margins for horizontal centering
+  text-align: center;
 }

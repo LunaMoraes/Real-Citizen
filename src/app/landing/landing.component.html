@@ -1,4 +1,10 @@
-<div class="landing-container">
-  <h1>Real Citizenship Test</h1>
-  <button (click)="start()">Start</button>
+<!-- src/app/landing/landing.component.html -->
+
+<!-- We wrap the content in our new 'card' class to get the glassmorphism effect -->
+<div class="card">
+  <h1>Welcome to Real Citizen</h1>
+  <p>This test will challenge your knowledge on civics, history, and culture. Find out how much you really know!</p>
+  
+  <!-- We apply the 'btn' class for the base style and a new 'btn-primary' for the pulse effect -->
+  <button class="btn btn-primary" (click)="startTest()">Start Test</button>
 </div>

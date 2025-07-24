@@ -1,1 +1,110 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.less */
+
+/* 1. GLOBAL VARIABLES - A new, clean and professional theme */
+:root {
+  --background-color: #111827; /* A deep, dark blue-gray */
+  --card-background: #1F2937;  /* A slightly lighter slate for cards */
+  --primary-purple: #8B5CF6;  /* A modern, vibrant violet */
+  --text-color: #D1D5DB;       /* A soft, light gray for readability */
+  --text-secondary: #9CA3AF;  /* A dimmer gray for secondary text */
+  --border-color: #374151;    /* A subtle border color */
+  --success-color: #22c55e;   /* Green for correct answers */
+  --error-color: #ef4444;     /* Red for incorrect answers */
+}
+
+/* 2. GLOBAL STYLES & RESETS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+}
+
+body {
+  background-color: var(--background-color); /* Static, professional background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #F9FAFB; /* Brighter white for main headers */
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+}
+
+/* 3. REUSABLE COMPONENT STYLES */
+
+/* A clean, solid card design */
+.card {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 650px;
+  text-align: center;
+}
+
+/* A clean, solid button design */
+.btn {
+  background: var(--primary-purple);
+  color: #F9FAFB;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:hover {
+    background: #7C3AED; /* A slightly darker purple on hover */
+  }
+
+  &:disabled {
+    background: #4B5563;
+    cursor: not-allowed;
+  }
+}
+
+/* Position tsParticles behind content and allow interactions */
+ngx-particles {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+#tsparticles {
+  position: fixed !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+/* Ensure router content is above particles */
+router-outlet {
+  position: relative;
+  z-index: 1;
+}

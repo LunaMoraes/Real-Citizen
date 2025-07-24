@@ -1,15 +1,38 @@
-<div class="test-container">
-  <p>Question {{ currentIndex + 1 }} of {{ questions.length }}</p>
-  <h2>{{ questions[currentIndex].question }}</h2>
-  <input
-    type="text"
-    [(ngModel)]="userAnswer"
-    placeholder="Your answer"
-  />
-  <button
-    [disabled]="!userAnswer"
-    (click)="next()"
-  >
-    {{ currentIndex + 1 < questions.length ? 'Next' : 'See Results' }}
-  </button>
+<!-- src/app/test/test.component.html -->
+
+<div class="card test-container" *ngIf="!finished">
+
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <span>Question {{ currentIndex + 1 }} of {{ questions.length }}</span>
+    <div class="progress-bar-background">
+      <div class="progress-bar-foreground" [style.width.%]="progress"></div>
+    </div>
+  </div>
+
+  <!-- Question -->
+  <div class="question-area">
+    <h2>{{ questions[currentIndex].question }}</h2>
+  </div>
+
+  <!-- RESTORED TEXTAREA FOR USER INPUT -->
+  <div class="input-area">
+    <textarea 
+      rows="4" 
+      placeholder="Type your answer here..."
+      [(ngModel)]="currentAnswer"
+      (ngModelChange)="saveAnswers()">
+    </textarea>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="navigation-buttons">
+    <button class="btn" (click)="previousQuestion()" [disabled]="currentIndex === 0">Previous</button>
+    <button class="btn" (click)="nextQuestion()">
+      {{ currentIndex === questions.length - 1 ? 'Finish Test' : 'Next' }}
+    </button>
+  </div>
 </div>
+
+<!-- Results component is shown when finished -->
+<app-results *ngIf="finished"></app-results>

@@ -1,1 +1,7 @@
-<router-outlet />
+<ngx-particles
+  [id]="id"
+  [options]="particlesOptions"
+  (particlesLoaded)="particlesLoaded($event)"
+></ngx-particles>
+
+<router-outlet></router-outlet>

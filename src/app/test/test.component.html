@@ -1,0 +1,15 @@
+<div class="test-container">
+  <p>Question {{ currentIndex + 1 }} of {{ questions.length }}</p>
+  <h2>{{ questions[currentIndex].question }}</h2>
+  <input
+    type="text"
+    [(ngModel)]="userAnswer"
+    placeholder="Your answer"
+  />
+  <button
+    [disabled]="!userAnswer"
+    (click)="next()"
+  >
+    {{ currentIndex + 1 < questions.length ? 'Next' : 'See Results' }}
+  </button>
+</div>

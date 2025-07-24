@@ -1,0 +1,9 @@
+<div class="results-container">
+  <h1>Results</h1>
+  <div *ngFor="let q of questions; let i = index" class="result-item">
+    <h3>Q{{ i + 1 }}: {{ q.question }}</h3>
+    <p><strong>Your answer:</strong> {{ userAnswers[i] || 'No answer' }}</p>
+    <p><strong>Correct answer:</strong> {{ q.answer }}</p>
+  </div>
+  <button (click)="restart()">Restart</button>
+</div>

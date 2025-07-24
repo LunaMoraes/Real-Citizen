@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   particlesOptions: ISourceOptions = {
     background: {
       color: {
-        value: '#111827',
+        value: '#0f172a',  // Match the darker background
       },
     },
     fpsLimit: 120,
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
       },
       modes: {
         repulse: {
-          distance: 100,
+          distance: 150,
           duration: 0.4,
         },
       },
@@ -40,10 +40,10 @@ export class AppComponent implements OnInit {
         value: '#8B5CF6',
       },
       links: {
-        color: '#374151',
+        color: '#475569',
         distance: 150,
         enable: true,
-        opacity: 0.2,
+        opacity: 0.3,
         width: 1,
       },
       move: {
@@ -53,23 +53,23 @@ export class AppComponent implements OnInit {
           default: OutMode.out,
         },
         random: false,
-        speed: 1,
+        speed: 1.5,
         straight: false,
       },
       number: {
         density: {
           enable: true,
         },
-        value: 80,
+        value: 100,
       },
       opacity: {
-        value: 0.3,
+        value: 0.4,
       },
       shape: {
         type: 'circle',
       },
       size: {
-        value: { min: 1, max: 3 },
+        value: { min: 1, max: 4 },
       },
     },
     detectRetina: true,

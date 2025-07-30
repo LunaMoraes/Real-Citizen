@@ -112,7 +112,7 @@ export const questions = [
   {
     id: 23,
     question: "Who is one of your state's U.S. senators now?",
-    answer: "Answers will vary. [District of Columbia residents and residents of U.S. territories should answer that D.C. (or the territory where the applicant lives) has no U.S. senators.]"
+    answer: "John Cornyn\nTed Cruz."
   },
   {
     id: 24,
@@ -142,12 +142,12 @@ export const questions = [
   {
     id: 29,
     question: "Name your U.S. representative.",
-    answer: "Answers will vary. [Residents of territories with nonvoting Delegates or Resident Commissioners may provide the name of that Delegate or Commissioner. Also acceptable is any statement that the territory has no (voting) representatives in Congress.]"
+    answer: "Al Green (District 9)\nTroy E. Nehls (District 22)"
   },
   {
     id: 30,
     question: "What is the name of the Speaker of the House of Representatives now? *",
-    answer: "Visit uscis.gov/citizenship/testupdates for the name of the Speaker of the House of Representatives."
+    answer: "Rep. Mike Johnson"
   },
   {
     id: 31,
@@ -187,12 +187,12 @@ export const questions = [
   {
     id: 38,
     question: "What is the name of the President of the United States now? *",
-    answer: "Visit uscis.gov/citizenship/testupdates for the name of the President of the United States."
+    answer: "Donald J. Trump"
   },
   {
     id: 39,
     question: "What is the name of the Vice President of the United States now? *",
-    answer: "Visit uscis.gov/citizenship/testupdates for the name of the Vice President of the United States."
+    answer: "James David Vance (J.D. Vance)"
   },
   {
     id: 40,
@@ -282,7 +282,7 @@ export const questions = [
   {
     id: 57,
     question: "Who is the Chief Justice of the United States now?",
-    answer: "Visit uscis.gov/citizenship/testupdates for the name of the Chief Justice of the United States."
+    answer: "John G. Roberts JR (since 2005)"
   },
   {
     id: 58,
@@ -302,12 +302,12 @@ export const questions = [
   {
     id: 61,
     question: "Who is the governor of your state now? *",
-    answer: "Answers will vary. [District of Columbia residents should answer that D.C. does not have a governor.]"
+    answer: "Greg Abbott (since 2015)"
   },
   {
     id: 62,
     question: "What is the capital of your state?",
-    answer: "Answers will vary. [District of Columbia residents should answer that D.C. is not a state and does not have a capital. Residents of U.S. territories should name the capital of the territory.]"
+    answer: "Austin (TX)"
   },
   {
     id: 63,

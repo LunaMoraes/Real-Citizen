@@ -12,7 +12,8 @@ import { ResultsComponent } from '../results/results.component';
   styleUrl: './test.component.less'
 })
 export class TestComponent implements OnInit {
-  questions = questions;
+  allQuestions = questions; // Keep reference to all questions
+  questions: any[] = []; // Selected random questions for this test
   answers: string[] = []; // Array to hold all user answers
   currentIndex = 0;
   finished = false;
@@ -27,13 +28,26 @@ export class TestComponent implements OnInit {
 
   // On component load, get saved answers from localStorage
   ngOnInit(): void {
-    const savedAnswers = localStorage.getItem('answers');
-    if (savedAnswers) {
-      this.answers = JSON.parse(savedAnswers);
-    } else {
-      // If no saved answers, create an empty array
-      this.answers = new Array(this.questions.length).fill('');
-    }
+    // Always start fresh - reset everything when starting a new test
+    this.resetTest();
+  }
+
+  // Reset the test to initial state
+  resetTest(): void {
+    this.currentIndex = 0;
+    this.finished = false;
+    // Select 10 random questions from all available questions
+    this.questions = this.selectRandomQuestions(this.allQuestions, 10);
+    this.answers = new Array(this.questions.length).fill('');
+    localStorage.removeItem('answers'); // Clear any saved progress
+    // Save selected questions for results page
+    localStorage.setItem('selectedQuestions', JSON.stringify(this.questions));
+  }
+
+  // Helper method to select random questions
+  selectRandomQuestions(allQuestions: any[], count: number): any[] {
+    const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, Math.min(count, allQuestions.length));
   }
 
   // Save current answer and move to the next question
@@ -61,8 +75,7 @@ export class TestComponent implements OnInit {
 
   // For the progress bar visual
   get progress(): number {
-    // Progress is based on the farthest question answered
-    const lastAnswered = this.answers.map(a => a.trim() !== '').lastIndexOf(true);
-    return ((lastAnswered + 1) / this.questions.length) * 100;
+    // Progress is based on current question index, not saved answers
+    return ((this.currentIndex + 1) / this.questions.length) * 100;
   }
 }

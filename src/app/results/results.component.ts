@@ -11,10 +11,16 @@ import { questions } from '../../assets/questions';
   styleUrl: './results.component.less'
 })
 export class ResultsComponent implements OnInit {
-  questions = questions;
+  questions: any[] = []; // Selected questions for this test
   userAnswers: string[] = [];
 
   ngOnInit(): void {
+    // Load the selected questions from localStorage
+    const savedQuestions = localStorage.getItem('selectedQuestions');
+    if (savedQuestions) {
+      this.questions = JSON.parse(savedQuestions);
+    }
+
     // Load the user's answers from localStorage
     const savedAnswers = localStorage.getItem('answers');
     if (savedAnswers) {
@@ -25,5 +31,6 @@ export class ResultsComponent implements OnInit {
   // Method to clear localStorage and restart
   restartTest(): void {
     localStorage.removeItem('answers');
+    localStorage.removeItem('selectedQuestions');
   }
 }
